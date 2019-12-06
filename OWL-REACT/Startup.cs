@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ResDiary_CustomerRetentionLiveTestTool.Setup;
 
 namespace OWL_REACT
 {
@@ -12,6 +12,7 @@ namespace OWL_REACT
     {
         public Startup(IConfiguration configuration)
         {
+            var container = ProjectsWindsorConfig.Configure();
             Configuration = configuration;
         }
 
