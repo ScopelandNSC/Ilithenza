@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "e2b6f385-ec79-4d4d-8550-74c20cf02640",
+		"name": "Overwatch League API Collection",
+		"description": "A collection of OWL API calls along with test data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{region}}.battle.net/oauth/userinfo",
+					"protocol": "https",
+					"host": [
+						"{{region}}",
+						"battle",
+						"net"
+					],
+					"path": [
+						"oauth",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b3045654-db0f-46c9-bb87-d10d68b82ccb",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.access_token);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "0OdVk3DYlcQcC6pvz83Vb5b3TfVrLQez",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "7128ca90a068413eae90721d8974b16a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://eu.battle.net/oauth/token?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"eu",
+						"battle",
+						"net"
+					],
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hello Overwatch World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.overwatchleague.com/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"overwatchleague",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "browser",
+						"value": "true",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.overwatchleague.com/login?browser=True",
+					"protocol": "https",
+					"host": [
+						"api",
+						"overwatchleague",
+						"com"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "browser",
+							"value": "True"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Voting Leaderboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.overwatchleague.com/allstar/leaderboard",
+					"protocol": "https",
+					"host": [
+						"api",
+						"overwatchleague",
+						"com"
+					],
+					"path": [
+						"allstar",
+						"leaderboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Voters",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.overwatchleague.com/allstar/voters?token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"overwatchleague",
+						"com"
+					],
+					"path": [
+						"allstar",
+						"voters"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Matches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.overwatchleague.com/matches?token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"overwatchleague",
+						"com"
+					],
+					"path": [
+						"matches"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"protocolProfileBehavior": {}
+}
