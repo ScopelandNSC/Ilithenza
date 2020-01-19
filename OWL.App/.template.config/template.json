@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "ResDiary",
+    "classifications": [ "Web App", "MVC", "React" ],
+    "identity": "ResDiary.WebApp.CSharp",
+    "name": "Net Core web app with React",
+    "shortName": "resdiary-webapp",
+    "sourceName": "RD.Webapp.Template",
+    "preferNameDirectory": true,
+    "symbols": {
+        "kubernetesName": {
+            "type": "parameter",
+            "defaultValue": "resdiary-webapp",
+            "replaces":"resdiary-webapp",
+            "isRequired": true,
+            "fileRename": "resdiary-webapp"
+        }
+    }
+}

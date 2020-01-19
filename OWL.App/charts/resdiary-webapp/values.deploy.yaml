@@ -1,0 +1,17 @@
+# Declare variables to be passed into your templates.
+
+replicaCount: #{Setting.Deployment.Replicas}
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  hostName: "#{Setting.HostName}" 
+
+resources:
+  requests:
+    cpu: "250m"
+    memory: "100M"
+  limits:
+    memory: "300M"

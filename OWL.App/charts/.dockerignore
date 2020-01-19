@@ -1,0 +1,7 @@
+# Helm subcharts
+## Ignoring this because `helm dependency build` fails 
+## to rename the `charts/` dir in the charts.Dockerfile build
+**/charts
+
+# Packaged Helm dependencies
+**/*.tgz

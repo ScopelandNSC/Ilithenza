@@ -1,0 +1,31 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: resdiary-webapp-ingress
+  labels:
+    app.kubernetes.io/name: {{ include "resdiary-webapp.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
+    helm.sh/chart: {{ include "resdiary-webapp.chart" . }}
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    certmanager.k8s.io/acme-challenge-type: "dns01"
+    certmanager.k8s.io/acme-dns01-provider: "provider-cloudflare"
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: "cert-manager-letsencrypt-prod-issuer"
+spec:
+  rules:
+  - host: {{ .Values.ingress.hostName | quote }}
+    http:
+      paths:
+      - backend:
+          serviceName: "resdiary-webapp"
+          servicePort: "web"
+  tls:
+  - hosts:
+    - {{ .Values.ingress.hostName | quote }}
+    secretName: "resdiary-webapp-tls"
+{{- end }}
