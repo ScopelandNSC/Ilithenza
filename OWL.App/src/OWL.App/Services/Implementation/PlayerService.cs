@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using OWL.App.Config;
 using OWL.App.Dtos.Player;
 using OWL.App.Helpers.Interfaces;
@@ -19,14 +22,11 @@ namespace OWL.App.Services.Implementation
 
         public BasePlayer GetPlayer(int playerId)
         {
-            System.Uri url = new System.Uri(string.Format("{0}/players/{1}", "https://api.overwatchleague.com/", playerId));   // This should probably go through a service call -- Will do soon
+            System.Uri url = new System.Uri(string.Format("{0}/players/{1}", "https://api.overwatchleague.com", playerId));   // This should probably go through a service call -- Will do soon
 
             var response = _apiRequestHelper.Get(url);
 
-            var player = new BasePlayer();
-            player.playerId = 1;
-            player.username = "Scott";
-            return new BasePlayer();
+            return JObject.Parse(response)["data"]["player"].ToObject<BasePlayer>();
         }
     }
 }
