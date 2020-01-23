@@ -25,7 +25,7 @@ namespace OWL.App.Controllers
         [Route("{playerId:int}")]
         public void GetPlayer(int playerId)
         {
-            System.Uri url = new System.Uri(string.Format("{0}/players/{1}", "https://api-staging.overwatchleague.com/", playerId));   // This should probably go through a service call -- Will do soon
+            System.Uri url = new System.Uri(string.Format("{0}/players/{1}", "https://api.overwatchleague.com/", playerId));   // This should probably go through a service call -- Will do soon
 
             var response = _apiRequestHelper.Get(url);
         }
