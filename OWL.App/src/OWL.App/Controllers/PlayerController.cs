@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using OWL.App.Config;
+using OWL.App.Dtos.Player;
 using OWL.App.Services.Interface;
 
 namespace OWL.App.Controllers
@@ -19,9 +20,9 @@ namespace OWL.App.Controllers
 
         [HttpGet]
         [Route("{playerId:int}")]
-        public void GetPlayer(int playerId)
+        public BasePlayer GetPlayer(int playerId)
         {
-            _playerService.GetPlayer(playerId);
+            return _playerService.GetPlayer(playerId);
         }
     }
 }

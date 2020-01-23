@@ -3,6 +3,10 @@ class ApiHelper {
     static get(url) {
         return axios.get(url);
     }
+
+    static async getAsync(url) {
+        return await axios.get(url);
+    }
     static post(url, body, headers) {
         return axios.post(url, body, { "headers": headers });
     }

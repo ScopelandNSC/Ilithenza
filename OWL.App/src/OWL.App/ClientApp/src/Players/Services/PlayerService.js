@@ -1,8 +1,9 @@
 ﻿import apiHelper from '../../Common/Helpers/ApiHelper';
 
 class PlayerService {
-    getPlayer(playerId) {
-        return apiHelper.get(`api/Player/${playerId}`);
+    async getPlayer(playerId) {
+        var response = await apiHelper.getAsync(`api/Player/${playerId}`);
+        return response.data;
     }
 }
 
