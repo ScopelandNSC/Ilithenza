@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using OWL.App.Config;
-using OWL.App.Helpers.Interfaces;
+using OWL.App.Services.Interface;
 
 namespace OWL.App.Controllers
 {
@@ -12,22 +12,18 @@ namespace OWL.App.Controllers
     [Route("api/[controller]")]
     public class PlayerController : Controller
     {
-        private readonly IOptions<OverwatchApiSettings> _overwatchApiSettings;
-        private readonly IApiRequestHelper _apiRequestHelper;
+        private IPlayerService _playerService;
 
-        public PlayerController(IOptions<OverwatchApiSettings> overwatchApiSettings, IApiRequestHelper apiRequestHelper)
+        public PlayerController(IPlayerService playerService)
         {
-            _overwatchApiSettings = overwatchApiSettings;
-            _apiRequestHelper = apiRequestHelper;
+            _playerService = playerService;
         }
 
         [HttpGet]
         [Route("{playerId:int}")]
         public void GetPlayer(int playerId)
         {
-            System.Uri url = new System.Uri(string.Format("{0}/players/{1}", "https://api.overwatchleague.com/", playerId));   // This should probably go through a service call -- Will do soon
-
-            var response = _apiRequestHelper.Get(url);
+            _playerService.GetPlayer(playerId);
         }
     }
 }

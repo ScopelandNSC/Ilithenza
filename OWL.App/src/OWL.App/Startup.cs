@@ -12,6 +12,10 @@ using Microsoft.Extensions.Hosting;
 using OWL.App.Config;
 using OWL.App.Helpers.Implementations;
 using OWL.App.Helpers.Interfaces;
+using OWL.App.Repositories.Implementation;
+using OWL.App.Repositories.Interface;
+using OWL.App.Services.Implementation;
+using OWL.App.Services.Interface;
 using Prometheus;
 
 namespace OWL.App
@@ -104,6 +108,23 @@ namespace OWL.App
         }
 
         private static void ConfigureDependencyInjection(IServiceCollection services)
+        {
+            ConfigureRepositoryDependancies(services);
+            ConfigureServiceDependancies(services);
+            ConfigureHelperDependancies(services);
+        }
+
+        private static void ConfigureRepositoryDependancies(IServiceCollection services)
+        {
+            services.AddTransient<IPlayerRepository, PlayerRepository>();
+        }
+
+        private static void ConfigureServiceDependancies(IServiceCollection services)
+        {
+            services.AddTransient<IPlayerService, PlayerService>();
+        }
+
+        private static void ConfigureHelperDependancies(IServiceCollection services)
         {
             services.AddTransient<IApiRequestHelper, ApiRequestHelper>();
         }
