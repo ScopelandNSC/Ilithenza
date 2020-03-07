@@ -13,9 +13,9 @@ export default function App() {
             <Route exact path='/' component={Home} />
           </Layout>
           <Button onClick={
-            () => {
+            async () => {
                 const playerService = new PlayerService();
-                var player = playerService.getPlayer(8747);
+                var player = await playerService.getPlayer(8747);
             }
           }/>
       </Fragment>
