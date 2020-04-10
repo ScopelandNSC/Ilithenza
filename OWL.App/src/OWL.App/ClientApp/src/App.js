@@ -1,6 +1,6 @@
 import React, { Fragment, useState} from 'react';
 import { Route } from 'react-router';
-import { Layout } from './Common/Components/Layout';
+import { Layout } from './Common/Components/Layout/Layout';
 import { Home } from './Common/Components/Home';
 import { Button } from 'reactstrap';
 import PlayerService from './Players/Services/PlayerService'
