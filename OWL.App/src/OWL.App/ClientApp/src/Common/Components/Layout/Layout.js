@@ -16,7 +16,6 @@ export class Layout extends Component {
                 <SidePanel
                     sidepanelTitle="SidePanel Test"
                     sidepanelOpen={true}
-                    closeSidepanel={() => {}}
                 />
                 <Container className={true ? 'rd-container' : 'rd-container rd-container--sidepanel-hidden'}>
                     {this.props.children}

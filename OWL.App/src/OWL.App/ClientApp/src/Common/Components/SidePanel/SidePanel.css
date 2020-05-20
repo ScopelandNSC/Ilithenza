@@ -2,7 +2,7 @@
   rd-sidepanel STYLES
 \*------------------------------------*/
 
-.rd-sidepanel {
+.sidepanel {
   position: fixed;
   top: 60px;
   left: 0px;
@@ -16,8 +16,30 @@
   box-shadow: -10px 0px 20px -10px #cbcbcb;
 }
 
- 
-
-rd-sidepanel--hide {
+.sidepanel--hide {
     width: 90px;
+}
+
+.sidepanel-toggle-btn{
+    display: flex;
+    float: right;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.sidepanel-toggle-btn:hover{
+    background-color: #eee;
+    border-color: #eee;
+}
+
+.sidepanel-toggle-btn:active{
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.sidepanel-toggle-btn:focus{
+    background-color: #fff;
+    border-color: #fff;
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
 }
