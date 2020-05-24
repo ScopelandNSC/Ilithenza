@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment, useState } from 'react';
+import PageBody from './PageBody'
 
 export class Home extends Component {
   static displayName = Home.name;
 
-  render () {
+    render() {
     return (
-      <div>
-        <h1>Hello, OWL.App!</h1>
-      </div>
+      <Fragment>
+            <h1>Hello, OWL.App!</h1>
+            <PageBody/>
+      </Fragment>
     );
   }
 }
