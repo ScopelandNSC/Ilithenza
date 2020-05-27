@@ -1,13 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace OWL.App.Dtos.Player
 {
     public class BasePlayer
     {
-        [JsonProperty("id")]
-        public int playerId { get; set; }
+        public PlayerPersonalDetails PersonalDetails { get; set; }
 
-        [JsonProperty("name")]
-        public string username { get; set; }
+        public PlayerHeroDetails HeroDetails { get; set; }
+
+        public IEnumerable<PlayerTeamDetails> TeamDetails { get; set; }
     }
 }
