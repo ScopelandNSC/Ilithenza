@@ -5,10 +5,10 @@ namespace OWL.App.Dtos.Player
 {
     public class BasePlayer
     {
-        public PlayerPersonalDetails PersonalDetails { get; set; }
+        public PlayerPersonalDetails personalDetails { get; set; }
 
-        public PlayerHeroDetails HeroDetails { get; set; }
+        public PlayerHeroDetails heroDetails { get; set; }
 
-        public IEnumerable<PlayerTeamDetails> TeamDetails { get; set; }
+        public IEnumerable<PlayerTeamDetails> teamDetails { get; set; }
     }
 }

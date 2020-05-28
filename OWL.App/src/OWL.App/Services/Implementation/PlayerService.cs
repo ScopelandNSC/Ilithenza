@@ -29,11 +29,12 @@ namespace OWL.App.Services.Implementation
 
             var response = _apiRequestHelper.Get(url);
 
-            player.PersonalDetails = JObject.Parse(response)["data"]["player"].ToObject<PlayerPersonalDetails>();
+            player.personalDetails = JObject.Parse(response)["data"]["player"].ToObject<PlayerPersonalDetails>();
 
-            player.HeroDetails = JObject.Parse(response)["data"]["player"]["attributes"].ToObject<PlayerHeroDetails>();
+            player.heroDetails = JObject.Parse(response)["data"]["player"]["attributes"].ToObject<PlayerHeroDetails>();
 
-            player.TeamDetails = GetTeamDetails(response);
+            player.teamDetails = GetTeamDetails(response);
+
             return player;
         }
 

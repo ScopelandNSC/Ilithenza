@@ -20,7 +20,7 @@ namespace OWL.App.Dtos.Player
         [JsonProperty("givenName")]
         public string givenName { get; set; }
 
-        [JsonProperty("availableLangauges")]
+        [JsonProperty("availableLanguages")]
         public IReadOnlyList<string> languages { get; set; }
     }
 }
