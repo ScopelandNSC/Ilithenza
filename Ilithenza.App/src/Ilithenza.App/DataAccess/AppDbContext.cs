@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Ilithenza.App.DataAccess.ContextConfiguration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ilithenza.App.DataAccess
 {
@@ -14,5 +15,10 @@ namespace Ilithenza.App.DataAccess
         public DbSet<ClassPath> ClassPaths { get; set; }
 
         public DbSet<ClassPathNode> ClassPathNodes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ClassConfiguration());
+        }
     }
 }
