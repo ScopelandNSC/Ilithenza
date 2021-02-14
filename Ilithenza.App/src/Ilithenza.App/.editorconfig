@@ -17,3 +17,9 @@ dotnet_diagnostic.CA2000.severity = none
 
 # CA1307: Specify StringComparison
 dotnet_diagnostic.CA1307.severity = none
+
+# SA1413: Use trailing comma in multi-line initializers
+dotnet_diagnostic.SA1413.severity = suggestion
+
+# CA1062: Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = suggestion
