@@ -1,0 +1,23 @@
+/*------------------------------------*\
+  sidepanel-item STYLES
+\*------------------------------------*/
+
+.sidepanel-item {
+    display: flex;
+    width: 360px;
+    height: 30px;
+    transition: all 0.3s ease;
+    background: #fff;
+    z-index: 1002;
+    overflow: hidden;
+    border: 1px solid #cbcbcb;
+    box-shadow: -10px 0px 20px -10px #cbcbcb;
+}
+
+.sidepanel-item--category {
+
+}
+
+.sidepanel-item--sub {
+
+}

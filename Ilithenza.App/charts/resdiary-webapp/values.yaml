@@ -1,0 +1,47 @@
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: resdiary-on.azurecr.io/resdiary/resdiary-webapp
+  tag: local
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: NodePort #ClusterIP
+  webNodePort: 31140
+  metricsNodePort: 31141
+
+ingress:
+  enabled: false
+  hostName: "" # #{Setting.HostName}
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  paths: []
+  hosts:
+    - chart-example.local 
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # requests:
+  #   cpu: 250m
+  #   memory: 100M
+  # limits:
+  #   memory: 300M
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

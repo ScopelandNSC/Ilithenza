@@ -1,0 +1,12 @@
+*
+!/RD.Webapp.Template
+!/ResDiary-Utils
+**/bin
+**/obj
+**/node_modules
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/.vs
+**/.vscode

@@ -1,0 +1,44 @@
+/*------------------------------------*\
+  ICON STYLES
+\*------------------------------------*/
+
+@mixin styling-icon-evenodd() {
+  fill-rule:evenodd;
+  clip-rule:evenodd;
+}
+
+.icon-arrow-left{
+    @include styling-icon-evenodd();
+}
+
+.icon-edit{
+  @include styling-icon-evenodd();
+}
+
+.icon-cancel{
+  @include styling-icon-evenodd();
+}
+
+.icon-email{
+  @include styling-icon-evenodd();
+}
+
+.icon-lock{
+  @include styling-icon-evenodd();
+}
+
+.icon-more-kebab{
+  @include styling-icon-evenodd();
+}
+
+.icon-person{
+  @include styling-icon-evenodd();
+}
+
+.icon-phone{
+  @include styling-icon-evenodd();
+}
+
+.icon-unlock{
+  @include styling-icon-evenodd();
+}

@@ -1,0 +1,16 @@
+/*------------------------------------*\
+  rd-sidepanel STYLES
+\*------------------------------------*/
+
+.rd-container {
+    background-color: #fff;
+    display: flex;
+    left: 360px;
+    position: relative;
+    padding: 0px 5px;
+    margin: 0px;
+}
+
+.rd-container--sidepanel-hidden {
+    left: 90px;
+}
