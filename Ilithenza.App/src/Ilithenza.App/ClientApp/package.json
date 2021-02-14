@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^4.12.3",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "jest": "^24.9.0",
     "jquery": "^3.4.1",
