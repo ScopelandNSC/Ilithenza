@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.12.3",
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
     "jest": "^24.9.0",
