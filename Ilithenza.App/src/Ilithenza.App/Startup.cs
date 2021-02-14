@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Ilithenza.App.Config;
+using Ilithenza.App.DataAccess;
 using Ilithenza.App.Helpers.Implementations;
 using Ilithenza.App.Helpers.Interfaces;
 using Ilithenza.App.Repositories.Implementation;
@@ -11,8 +12,8 @@ using Ilithenza.App.Services.Implementation;
 using Ilithenza.App.Services.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -48,11 +49,13 @@ namespace Ilithenza.App
 
             ConfigureDependencyInjection(services);
 
+            services.AddDbContext<AppDbContext>(o => o.UseSqlServer(configuration.GetConnectionString("IlithenzaDatabase")));
+
             services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext db)
         {
             ConfigureMetrics(app);
 
@@ -66,6 +69,10 @@ namespace Ilithenza.App
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            #pragma warning disable CA1062 // Validate arguments of public methods
+            db.Database.EnsureCreated();
+            #pragma warning restore CA1062 // Validate arguments of public methods
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
